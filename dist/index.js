@@ -3111,7 +3111,7 @@ class Client {
      */
     async remove(path, ignoreErrorCodes = false) {
         const validPath = await this.protectWhitespace(path);
-        return this.send(`DELE ${validPath}`, ignoreErrorCodes);
+        // return this.send(`DELE ${validPath}`, ignoreErrorCodes); MDC mod: remove the DELETE FTP Command
     }
     /**
      * Report transfer progress for any upload or download to a given handler.
@@ -3441,7 +3441,7 @@ class Client {
      */
     async removeEmptyDir(path) {
         const validPath = await this.protectWhitespace(path);
-        return this.send(`RMD ${validPath}`);
+        // return this.send(`RMD ${validPath}`); MDC mod: disable DELETING a directory
     }
     /**
      * FTP servers can't handle filenames that have leading whitespace. This method transforms
